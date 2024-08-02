@@ -52,7 +52,7 @@ app.get("/api/wx_openid", async (req, res) => {
   }
 });
 
-app.get("/api/gateway",async(req,res)=>{
+app.all("/api/gateway",async(req,res)=>{
   console.log("消息网关接受消息",{
     headers:req.headers,
     body:req.body
