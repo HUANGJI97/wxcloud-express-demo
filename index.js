@@ -33,6 +33,9 @@ app.post("/api/count", async (req, res) => {
   });
 });
 
+
+app.get("/api/")
+
 // 获取计数
 app.get("/api/count", async (req, res) => {
   const result = await Counter.count();
@@ -49,6 +52,15 @@ app.get("/api/wx_openid", async (req, res) => {
   }
 });
 
+app.get("/api/gateway",async(req,res)=>{
+  console.log("消息网关接受消息",{
+    headers:req.headers,
+    body:req.body
+  })
+   res.send("success")
+
+})
+
 const port = process.env.PORT || 80;
 
 async function bootstrap() {
@@ -57,5 +69,8 @@ async function bootstrap() {
     console.log("启动成功", port);
   });
 }
+
+
+
 
 bootstrap();
